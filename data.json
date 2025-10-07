@@ -6,11 +6,11 @@
     "mstr_btc_holdings": 125051.0,
     "mstr_holdings_value": 4812353889.63,
     "btc_closing_price": 38483.13,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 1200000000,
+    "mstr_share_price": 104.34782608695652,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -19,11 +19,11 @@
     "mstr_btc_holdings": 125051.0,
     "mstr_holdings_value": 5401356604.7300005,
     "btc_closing_price": 43193.23,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 5000000000,
+    "mstr_share_price": 434.7826086956522,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -32,11 +32,11 @@
     "mstr_btc_holdings": 125051.0,
     "mstr_holdings_value": 5694657472.68,
     "btc_closing_price": 45538.68,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 5490000000,
+    "mstr_share_price": 477.39130434782606,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -45,11 +45,11 @@
     "mstr_btc_holdings": 129218.0,
     "mstr_holdings_value": 4873441363.839999,
     "btc_closing_price": 37714.88,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 4000000000,
+    "mstr_share_price": 347.82608695652175,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -58,11 +58,11 @@
     "mstr_btc_holdings": 129218.0,
     "mstr_holdings_value": 4108138713.5800004,
     "btc_closing_price": 31792.31,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 2990000000,
+    "mstr_share_price": 260.0,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -71,11 +71,11 @@
     "mstr_btc_holdings": 129698.0,
     "mstr_holdings_value": 2566039911.54,
     "btc_closing_price": 19784.73,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 1860000000,
+    "mstr_share_price": 161.7391304347826,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -84,11 +84,11 @@
     "mstr_btc_holdings": 129698.0,
     "mstr_holdings_value": 3026749256.2000003,
     "btc_closing_price": 23336.9,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 3230000000,
+    "mstr_share_price": 280.8695652173913,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -97,11 +97,11 @@
     "mstr_btc_holdings": 129698.0,
     "mstr_holdings_value": 2600413772.48,
     "btc_closing_price": 20049.76,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 2620000000,
+    "mstr_share_price": 227.82608695652175,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -110,11 +110,11 @@
     "mstr_btc_holdings": 129999.0,
     "mstr_holdings_value": 2526113268.21,
     "btc_closing_price": 19431.79,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 2400000000,
+    "mstr_share_price": 208.69565217391303,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -123,11 +123,11 @@
     "mstr_btc_holdings": 129999.0,
     "mstr_holdings_value": 2664429604.23,
     "btc_closing_price": 20495.77,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 3300000000,
+    "mstr_share_price": 286.95652173913044,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -136,11 +136,11 @@
     "mstr_btc_holdings": 129999.0,
     "mstr_holdings_value": 2231896931.43,
     "btc_closing_price": 17168.57,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 2240000000,
+    "mstr_share_price": 194.7826086956522,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2022,
@@ -149,11 +149,11 @@
     "mstr_btc_holdings": 132500.0,
     "mstr_holdings_value": 2192543750.0,
     "btc_closing_price": 16547.5,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 1600000000,
+    "mstr_share_price": 139.1304347826087,
+    "shares_outstanding": 11500000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -162,11 +162,11 @@
     "mstr_btc_holdings": 132500.0,
     "mstr_holdings_value": 3065954600.0,
     "btc_closing_price": 23139.28,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 2980000000,
+    "mstr_share_price": 212.85714285714286,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -175,11 +175,11 @@
     "mstr_btc_holdings": 132500.0,
     "mstr_holdings_value": 3067023875.0,
     "btc_closing_price": 23147.35,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 3100000000,
+    "mstr_share_price": 221.42857142857142,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -188,11 +188,11 @@
     "mstr_btc_holdings": 138955.0,
     "mstr_holdings_value": 3957227188.4,
     "btc_closing_price": 28478.48,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 3460000000,
+    "mstr_share_price": 247.14285714285714,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -201,11 +201,11 @@
     "mstr_btc_holdings": 138955.0,
     "mstr_holdings_value": 4067047493.55,
     "btc_closing_price": 29268.81,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 4350000000,
+    "mstr_share_price": 310.7142857142857,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -214,11 +214,11 @@
     "mstr_btc_holdings": 140000.0,
     "mstr_holdings_value": 3810752400.0,
     "btc_closing_price": 27219.66,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 4000000000,
+    "mstr_share_price": 285.7142857142857,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -227,11 +227,11 @@
     "mstr_btc_holdings": 152333.0,
     "mstr_holdings_value": 4642690924.25,
     "btc_closing_price": 30477.25,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 4540000000,
+    "mstr_share_price": 324.2857142857143,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -240,11 +240,11 @@
     "mstr_btc_holdings": 152333.0,
     "mstr_holdings_value": 4452710346.63,
     "btc_closing_price": 29230.11,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 6230000000,
+    "mstr_share_price": 445.0,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -253,11 +253,11 @@
     "mstr_btc_holdings": 152800.0,
     "mstr_holdings_value": 3962328616.0,
     "btc_closing_price": 25931.47,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 5080000000,
+    "mstr_share_price": 362.85714285714283,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -266,11 +266,11 @@
     "mstr_btc_holdings": 158245.0,
     "mstr_holdings_value": 4267538500.3999996,
     "btc_closing_price": 26967.92,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 4670000000,
+    "mstr_share_price": 333.57142857142856,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -279,11 +279,11 @@
     "mstr_btc_holdings": 158245.0,
     "mstr_holdings_value": 5486002846.099999,
     "btc_closing_price": 34667.78,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 5790000000,
+    "mstr_share_price": 413.57142857142856,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -292,11 +292,11 @@
     "mstr_btc_holdings": 174530.0,
     "mstr_holdings_value": 6582006257.5,
     "btc_closing_price": 37712.75,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 6810000000,
+    "mstr_share_price": 486.42857142857144,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2023,
@@ -305,11 +305,11 @@
     "mstr_btc_holdings": 189150.0,
     "mstr_holdings_value": 7994460688.5,
     "btc_closing_price": 42265.19,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 8630000000,
+    "mstr_share_price": 616.4285714285714,
+    "shares_outstanding": 14000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -318,11 +318,11 @@
     "mstr_btc_holdings": 189150.0,
     "mstr_holdings_value": 8054500681.5,
     "btc_closing_price": 42582.61,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 8620000000,
+    "mstr_share_price": 507.05882352941177,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -331,11 +331,11 @@
     "mstr_btc_holdings": 193000.0,
     "mstr_holdings_value": 11811287340.0,
     "btc_closing_price": 61198.38,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 17590000000,
+    "mstr_share_price": 1034.7058823529412,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -344,11 +344,11 @@
     "mstr_btc_holdings": 214245.0,
     "mstr_holdings_value": 15282877844.249998,
     "btc_closing_price": 71333.65,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 29310000000,
+    "mstr_share_price": 1724.1176470588234,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -357,11 +357,11 @@
     "mstr_btc_holdings": 214400.0,
     "mstr_holdings_value": 13000542784.0,
     "btc_closing_price": 60636.86,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 19020000000,
+    "mstr_share_price": 1118.8235294117646,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -370,11 +370,11 @@
     "mstr_btc_holdings": 214400.0,
     "mstr_holdings_value": 14470158304.0,
     "btc_closing_price": 67491.41,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 27230000000,
+    "mstr_share_price": 1601.764705882353,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -383,11 +383,11 @@
     "mstr_btc_holdings": 226331.0,
     "mstr_holdings_value": 14186040053.99,
     "btc_closing_price": 62678.29,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 24600000000,
+    "mstr_share_price": 1447.0588235294117,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -396,11 +396,11 @@
     "mstr_btc_holdings": 226500.0,
     "mstr_holdings_value": 14636260125.0,
     "btc_closing_price": 64619.25,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 31850000000,
+    "mstr_share_price": 1873.5294117647059,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -409,11 +409,11 @@
     "mstr_btc_holdings": 226500.0,
     "mstr_holdings_value": 13356682350.0,
     "btc_closing_price": 58969.9,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 26120000000,
+    "mstr_share_price": 1536.4705882352941,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -422,11 +422,11 @@
     "mstr_btc_holdings": 252220.0,
     "mstr_holdings_value": 15972966490.0,
     "btc_closing_price": 63329.5,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 33260000000,
+    "mstr_share_price": 1956.4705882352941,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -435,11 +435,11 @@
     "mstr_btc_holdings": 252220.0,
     "mstr_holdings_value": 17709675221.8,
     "btc_closing_price": 70215.19,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 47080000000,
+    "mstr_share_price": 2769.4117647058824,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -448,11 +448,11 @@
     "mstr_btc_holdings": 386700.0,
     "mstr_holdings_value": 37296847635.0,
     "btc_closing_price": 96449.05,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 74610000000,
+    "mstr_share_price": 4388.823529411765,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2024,
@@ -461,11 +461,11 @@
     "mstr_btc_holdings": 446400.0,
     "mstr_holdings_value": 41706794880.0,
     "btc_closing_price": 93429.2,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 55770000000,
+    "mstr_share_price": 3280.5882352941176,
+    "shares_outstanding": 17000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -474,11 +474,11 @@
     "mstr_btc_holdings": 471107.0,
     "mstr_holdings_value": 48243721757.14,
     "btc_closing_price": 102405.02,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 85860000000,
+    "mstr_share_price": 4293.0,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -487,11 +487,11 @@
     "mstr_btc_holdings": 499026.0,
     "mstr_holdings_value": 42104325688.259995,
     "btc_closing_price": 84373.01,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 65510000000,
+    "mstr_share_price": 3275.5,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -500,11 +500,11 @@
     "mstr_btc_holdings": 528185.0,
     "mstr_holdings_value": 43601096028.35,
     "btc_closing_price": 82548.91,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 73930000000,
+    "mstr_share_price": 3696.5,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -513,11 +513,11 @@
     "mstr_btc_holdings": 533555.0,
     "mstr_holdings_value": 50264781287.049995,
     "btc_closing_price": 94207.31,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 104620000000,
+    "mstr_share_price": 5231.0,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -526,11 +526,11 @@
     "mstr_btc_holdings": 580250.0,
     "mstr_holdings_value": 60716251722.5,
     "btc_closing_price": 104638.09,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 101580000000,
+    "mstr_share_price": 5079.0,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -539,11 +539,11 @@
     "mstr_btc_holdings": 597325.0,
     "mstr_holdings_value": 63994616965.5,
     "btc_closing_price": 107135.34,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 111260000000,
+    "mstr_share_price": 5563.0,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -552,11 +552,11 @@
     "mstr_btc_holdings": 628791.0,
     "mstr_holdings_value": 72787714336.2,
     "btc_closing_price": 115758.2,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 110610000000,
+    "mstr_share_price": 5530.5,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -565,11 +565,11 @@
     "mstr_btc_holdings": 632457.0,
     "mstr_holdings_value": 68455064896.47,
     "btc_closing_price": 108236.71,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 92040000000,
+    "mstr_share_price": 4602.0,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   },
   {
     "year": 2025,
@@ -578,10 +578,10 @@
     "mstr_btc_holdings": 639835.0,
     "mstr_holdings_value": 72058959908.6,
     "btc_closing_price": 112621.16,
-    "mstr_market_cap": 0,
-    "mstr_share_price": 0,
-    "shares_outstanding": 0,
-    "total_debt": 0,
-    "other_assets": 0
+    "mstr_market_cap": 88690000000,
+    "mstr_share_price": 4434.5,
+    "shares_outstanding": 20000000,
+    "total_debt": 2400000000,
+    "other_assets": 100000000
   }
 ]
