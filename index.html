@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSTR Bitcoin Holdings Rainbow Chart</title>
+    <title>MSTR Bitcoin Holdings & mNAV Rainbow Chart</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -14,7 +14,7 @@
             min-height: 100vh;
         }
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -38,6 +38,16 @@
             height: 500px;
             margin-bottom: 40px;
         }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .chart-half {
+            position: relative;
+            height: 400px;
+        }
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -50,6 +60,12 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+        }
+        .stat-card.premium {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+        .stat-card.discount {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8787 100%);
         }
         .stat-value {
             font-size: 2em;
@@ -83,12 +99,30 @@
             height: 20px;
             border-radius: 3px;
         }
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            color: #856404;
+        }
+        @media (max-width: 768px) {
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌈 MicroStrategy Bitcoin Holdings</h1>
+        <h1>🌈 MicroStrategy Bitcoin Holdings & mNAV</h1>
         <div class="subtitle">Tracking MSTR's Bitcoin accumulation journey</div>
+
+        <div class="warning-box" id="dataWarning" style="display:none;">
+            ⚠️ Note: mNAV calculations require market cap, share price, and debt data. Please update data.json with these values for accurate calculations.
+        </div>
 
         <div class="legend-container">
             <div class="legend-item">
@@ -103,10 +137,23 @@
                 <div class="legend-color" style="background: #95E77E;"></div>
                 <span>BTC Price</span>
             </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FFB56B;"></div>
+                <span>mNAV Premium/Discount</span>
+            </div>
         </div>
 
         <div class="chart-container">
             <canvas id="holdingsChart"></canvas>
+        </div>
+
+        <div class="chart-row" id="mnavCharts" style="display:none;">
+            <div class="chart-half">
+                <canvas id="mnavChart"></canvas>
+            </div>
+            <div class="chart-half">
+                <canvas id="premiumChart"></canvas>
+            </div>
         </div>
 
         <div class="chart-container">
@@ -136,17 +183,61 @@
             return gradient;
         }
 
+        // Calculate mNAV
+        function calculateMNAV(btcHoldingsValue, otherAssets, totalDebt, sharesOutstanding) {
+            if (sharesOutstanding === 0) return 0;
+            return (btcHoldingsValue + otherAssets - totalDebt) / sharesOutstanding;
+        }
+
+        // Calculate premium/discount
+        function calculatePremiumDiscount(sharePrice, mnav) {
+            if (mnav === 0) return 0;
+            return ((sharePrice - mnav) / mnav) * 100;
+        }
+
         // Load data and create charts
         async function loadDataAndCreateCharts() {
             try {
                 const response = await fetch('data.json');
                 const data = await response.json();
 
+                // Check if we have mNAV data
+                const hasFullData = data.some(d => d.mstr_share_price > 0);
+
+                // Show/hide elements based on data availability
+                if (!hasFullData) {
+                    document.getElementById('dataWarning').style.display = 'block';
+                } else {
+                    document.getElementById('mnavCharts').style.display = 'grid';
+                }
+
                 // Prepare data for charts
                 const labels = data.map(d => `${d.year}-${String(d.month).padStart(2, '0')}`);
                 const btcHoldings = data.map(d => d.mstr_btc_holdings);
                 const holdingsValue = data.map(d => d.mstr_holdings_value / 1000000); // Convert to millions
                 const btcPrice = data.map(d => d.btc_closing_price);
+
+                // Calculate mNAV values if data is available
+                const mnavValues = data.map(d => {
+                    if (d.shares_outstanding > 0) {
+                        return calculateMNAV(
+                            d.mstr_holdings_value,
+                            d.other_assets || 0,
+                            d.total_debt || 0,
+                            d.shares_outstanding
+                        );
+                    }
+                    return null;
+                });
+
+                const premiumDiscountValues = data.map((d, i) => {
+                    if (mnavValues[i] && d.mstr_share_price > 0) {
+                        return calculatePremiumDiscount(d.mstr_share_price, mnavValues[i]);
+                    }
+                    return null;
+                });
+
+                const sharePrices = data.map(d => d.mstr_share_price || null);
 
                 // Create holdings chart with rainbow effect
                 const holdingsCtx = document.getElementById('holdingsChart').getContext('2d');
@@ -168,7 +259,6 @@
                                     const chart = context.chart;
                                     const {ctx, chartArea} = chart;
                                     if (!chartArea) return 'rgba(255, 107, 107, 0.1)';
-                                    const gradient = createRainbowGradient(ctx, chartArea);
                                     const bgGradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
                                     bgGradient.addColorStop(0, 'rgba(255, 107, 107, 0.1)');
                                     bgGradient.addColorStop(0.5, 'rgba(149, 231, 126, 0.1)');
@@ -275,6 +365,119 @@
                     }
                 });
 
+                // Create mNAV charts if data is available
+                if (hasFullData) {
+                    const mnavCtx = document.getElementById('mnavChart').getContext('2d');
+                    const mnavChart = new Chart(mnavCtx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: 'MSTR Share Price',
+                                    data: sharePrices,
+                                    borderColor: '#6B8BFF',
+                                    backgroundColor: 'rgba(107, 139, 255, 0.1)',
+                                    borderWidth: 2,
+                                    fill: false,
+                                    tension: 0.4
+                                },
+                                {
+                                    label: 'mNAV per Share',
+                                    data: mnavValues,
+                                    borderColor: '#95E77E',
+                                    backgroundColor: 'rgba(149, 231, 126, 0.1)',
+                                    borderWidth: 2,
+                                    borderDash: [5, 5],
+                                    fill: false,
+                                    tension: 0.4
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Share Price vs mNAV',
+                                    font: {
+                                        size: 14
+                                    }
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'top'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: 'Price per Share ($)'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return '$' + value.toFixed(0);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    // Create premium/discount chart
+                    const premiumCtx = document.getElementById('premiumChart').getContext('2d');
+                    const premiumChart = new Chart(premiumCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'mNAV Premium/Discount (%)',
+                                data: premiumDiscountValues,
+                                backgroundColor: function(context) {
+                                    const value = context.parsed.y;
+                                    return value > 0 ? 'rgba(78, 205, 196, 0.6)' : 'rgba(255, 107, 107, 0.6)';
+                                },
+                                borderColor: function(context) {
+                                    const value = context.parsed.y;
+                                    return value > 0 ? '#4ECDC4' : '#FF6B6B';
+                                },
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'mNAV Premium/Discount',
+                                    font: {
+                                        size: 14
+                                    }
+                                },
+                                legend: {
+                                    display: false
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: 'Premium/Discount (%)'
+                                    },
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value.toFixed(0) + '%';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+
                 // Create price chart with rainbow gradient
                 const priceCtx = document.getElementById('priceChart').getContext('2d');
                 const priceChart = new Chart(priceCtx, {
@@ -359,6 +562,34 @@
                 const holdingsGrowth = ((latestData.mstr_btc_holdings - firstData.mstr_btc_holdings) / firstData.mstr_btc_holdings * 100).toFixed(1);
                 const avgCostBasis = data.reduce((sum, d) => sum + d.avg_btc_price, 0) / data.length;
 
+                // Calculate latest mNAV metrics if available
+                let mnavStats = '';
+                if (hasFullData && latestData.shares_outstanding > 0) {
+                    const latestMNAV = calculateMNAV(
+                        latestData.mstr_holdings_value,
+                        latestData.other_assets || 0,
+                        latestData.total_debt || 0,
+                        latestData.shares_outstanding
+                    );
+                    const latestPremium = calculatePremiumDiscount(latestData.mstr_share_price, latestMNAV);
+                    const premiumClass = latestPremium > 0 ? 'premium' : 'discount';
+
+                    mnavStats = `
+                        <div class="stat-card">
+                            <div class="stat-value">$${latestData.mstr_share_price.toFixed(2)}</div>
+                            <div class="stat-label">MSTR Share Price</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">$${latestMNAV.toFixed(2)}</div>
+                            <div class="stat-label">mNAV per Share</div>
+                        </div>
+                        <div class="stat-card ${premiumClass}">
+                            <div class="stat-value">${latestPremium > 0 ? '+' : ''}${latestPremium.toFixed(1)}%</div>
+                            <div class="stat-label">mNAV ${latestPremium > 0 ? 'Premium' : 'Discount'}</div>
+                        </div>
+                    `;
+                }
+
                 const statsHTML = `
                     <div class="stat-card">
                         <div class="stat-value">${latestData.mstr_btc_holdings.toLocaleString()}</div>
@@ -372,6 +603,7 @@
                         <div class="stat-value">$${latestData.btc_closing_price.toLocaleString()}</div>
                         <div class="stat-label">Current BTC Price</div>
                     </div>
+                    ${mnavStats}
                     <div class="stat-card">
                         <div class="stat-value">+${holdingsGrowth}%</div>
                         <div class="stat-label">Holdings Growth</div>
