@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSTR Bitcoin Holdings Rainbow Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .chart-container {
+            position: relative;
+            height: 500px;
+            margin-bottom: 40px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .update-info {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        .legend-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌈 MicroStrategy Bitcoin Holdings</h1>
+        <div class="subtitle">Tracking MSTR's Bitcoin accumulation journey</div>
+
+        <div class="legend-container">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF6B6B;"></div>
+                <span>BTC Holdings</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ECDC4;"></div>
+                <span>Holdings Value (USD)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #95E77E;"></div>
+                <span>BTC Price</span>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="holdingsChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="priceChart"></canvas>
+        </div>
+
+        <div class="stats" id="stats">
+            <!-- Stats will be populated by JavaScript -->
+        </div>
+
+        <div class="update-info" id="updateInfo">
+            <!-- Update info will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Function to create rainbow gradient
+        function createRainbowGradient(ctx, chartArea) {
+            const gradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
+            gradient.addColorStop(0, '#FF6B6B');      // Red
+            gradient.addColorStop(0.17, '#FFB56B');   // Orange
+            gradient.addColorStop(0.33, '#FFEB6B');   // Yellow
+            gradient.addColorStop(0.5, '#95E77E');    // Green
+            gradient.addColorStop(0.67, '#6BDFFF');   // Light Blue
+            gradient.addColorStop(0.83, '#6B8BFF');   // Blue
+            gradient.addColorStop(1, '#B56BFF');      // Purple
+            return gradient;
+        }
+
+        // Load data and create charts
+        async function loadDataAndCreateCharts() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+
+                // Prepare data for charts
+                const labels = data.map(d => `${d.year}-${String(d.month).padStart(2, '0')}`);
+                const btcHoldings = data.map(d => d.mstr_btc_holdings);
+                const holdingsValue = data.map(d => d.mstr_holdings_value / 1000000); // Convert to millions
+                const btcPrice = data.map(d => d.btc_closing_price);
+
+                // Create holdings chart with rainbow effect
+                const holdingsCtx = document.getElementById('holdingsChart').getContext('2d');
+                const holdingsChart = new Chart(holdingsCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'BTC Holdings',
+                                data: btcHoldings,
+                                borderColor: function(context) {
+                                    const chart = context.chart;
+                                    const {ctx, chartArea} = chart;
+                                    if (!chartArea) return '#FF6B6B';
+                                    return createRainbowGradient(ctx, chartArea);
+                                },
+                                backgroundColor: function(context) {
+                                    const chart = context.chart;
+                                    const {ctx, chartArea} = chart;
+                                    if (!chartArea) return 'rgba(255, 107, 107, 0.1)';
+                                    const gradient = createRainbowGradient(ctx, chartArea);
+                                    const bgGradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
+                                    bgGradient.addColorStop(0, 'rgba(255, 107, 107, 0.1)');
+                                    bgGradient.addColorStop(0.5, 'rgba(149, 231, 126, 0.1)');
+                                    bgGradient.addColorStop(1, 'rgba(181, 107, 255, 0.1)');
+                                    return bgGradient;
+                                },
+                                borderWidth: 3,
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 4,
+                                pointHoverRadius: 6,
+                                yAxisID: 'y'
+                            },
+                            {
+                                label: 'Holdings Value (Million USD)',
+                                data: holdingsValue,
+                                borderColor: '#4ECDC4',
+                                backgroundColor: 'rgba(78, 205, 196, 0.1)',
+                                borderWidth: 2,
+                                fill: false,
+                                tension: 0.4,
+                                pointRadius: 3,
+                                pointHoverRadius: 5,
+                                yAxisID: 'y1'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'MSTR Bitcoin Holdings Over Time',
+                                font: {
+                                    size: 16
+                                }
+                            },
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.dataset.label === 'BTC Holdings') {
+                                            label += context.parsed.y.toLocaleString() + ' BTC';
+                                        } else {
+                                            label += '$' + context.parsed.y.toFixed(2) + 'M';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                }
+                            },
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'BTC Holdings'
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        return value.toLocaleString() + ' BTC';
+                                    }
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: {
+                                    display: true,
+                                    text: 'Value (Million USD)'
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value.toFixed(0) + 'M';
+                                    }
+                                },
+                                grid: {
+                                    drawOnChartArea: false,
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Create price chart with rainbow gradient
+                const priceCtx = document.getElementById('priceChart').getContext('2d');
+                const priceChart = new Chart(priceCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Bitcoin Price (USD)',
+                            data: btcPrice,
+                            borderColor: function(context) {
+                                const chart = context.chart;
+                                const {ctx, chartArea} = chart;
+                                if (!chartArea) return '#95E77E';
+                                return createRainbowGradient(ctx, chartArea);
+                            },
+                            backgroundColor: function(context) {
+                                const chart = context.chart;
+                                const {ctx, chartArea} = chart;
+                                if (!chartArea) return 'rgba(149, 231, 126, 0.1)';
+                                const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+                                gradient.addColorStop(0, 'rgba(149, 231, 126, 0.3)');
+                                gradient.addColorStop(1, 'rgba(149, 231, 126, 0.05)');
+                                return gradient;
+                            },
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Bitcoin Price Movement',
+                                font: {
+                                    size: 16
+                                }
+                            },
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'BTC Price: $' + context.parsed.y.toLocaleString();
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                }
+                            },
+                            y: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Price (USD)'
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + (value / 1000).toFixed(0) + 'K';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Update statistics
+                const latestData = data[data.length - 1];
+                const firstData = data[0];
+                const holdingsGrowth = ((latestData.mstr_btc_holdings - firstData.mstr_btc_holdings) / firstData.mstr_btc_holdings * 100).toFixed(1);
+                const avgCostBasis = data.reduce((sum, d) => sum + d.avg_btc_price, 0) / data.length;
+
+                const statsHTML = `
+                    <div class="stat-card">
+                        <div class="stat-value">${latestData.mstr_btc_holdings.toLocaleString()}</div>
+                        <div class="stat-label">Total BTC Holdings</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$${(latestData.mstr_holdings_value / 1000000000).toFixed(2)}B</div>
+                        <div class="stat-label">Total Holdings Value</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$${latestData.btc_closing_price.toLocaleString()}</div>
+                        <div class="stat-label">Current BTC Price</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">+${holdingsGrowth}%</div>
+                        <div class="stat-label">Holdings Growth</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$${avgCostBasis.toLocaleString().split('.')[0]}</div>
+                        <div class="stat-label">Avg Cost Basis</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">${latestData.year}/${String(latestData.month).padStart(2, '0')}</div>
+                        <div class="stat-label">Last Update</div>
+                    </div>
+                `;
+                document.getElementById('stats').innerHTML = statsHTML;
+
+                // Update info
+                document.getElementById('updateInfo').textContent =
+                    `Data updated through ${latestData.year}/${String(latestData.month).padStart(2, '0')} | Edit data.json to update`;
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.body.innerHTML += '<div style="color: red; text-align: center; margin-top: 20px;">Error loading data.json. Please ensure the file is in the same directory.</div>';
+            }
+        }
+
+        // Load data when page loads
+        loadDataAndCreateCharts();
+    </script>
+</body>
+</html>
